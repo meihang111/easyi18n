@@ -10,7 +10,7 @@
     </parent>
     <artifactId>user-service</artifactId>
     <name>user-service</name>
-    <description>service 模块，对应 MVC 的 M 概念，存放核心业务逻辑代码</description>
+    <description>用户服务模块</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
