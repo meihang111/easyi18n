@@ -10,7 +10,7 @@
     <modules>
         <module>user-service</module>
         <module>team-service</module>
-        <module>eureka</module>
+        <module>eureka-service</module>
     </modules>
     <packaging>pom</packaging>
 
