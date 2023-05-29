@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.easyi18n.dao.TeamDao">
+
+    <insert id="createTeam" parameterType="Team" useGeneratedKeys="true" keyProperty="teamId">
+        insert into Team(team_name,team_owner,team_disc) values (#{teamName},#{teamOwner},#{teamDisc});
+    </insert>
+
+    <resultMap id="BaseResultType" type="dev.easyi18n.entities.Team">
+        <id column="team_id" property="teamId" jdbcType="BIGINT"/>
+        <id column="team_name" property="teamName" jdbcType="VARCHAR"/>
+        <id column="team_owner" property="teamOwner" jdbcType="BIGINT"/>
+        <id column="team_disc" property="teamDisc" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getTeamByTeamId" parameterType="Long" resultMap="BaseResultType">
+        select * from Team where team_id=#{teamId};
+    </select>
+
+    <select id="getTeamByUserId" parameterType="Long" resultMap="BaseResultType">
+        select Team.team_id as team_id,
+               Team.team_name as team_name,
+               Team.team_owner as team_owner,
+               Team.team_disc as team_disc
+        from Team RIGHT JOIN Team_User
+        on Team_User.user_id=#{userId} and Team.team_id=Team_User.team_id;
+    </select>
+</mapper>

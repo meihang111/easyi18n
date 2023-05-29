@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>user-service</module>
-        <module>group-service</module>
+        <module>team-service</module>
     </modules>
     <packaging>pom</packaging>
 

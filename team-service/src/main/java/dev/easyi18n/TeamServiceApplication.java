@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @project https://github.com/meihang111/easyi18n
  */
 @SpringBootApplication
-public class GroupServiceApplication {
+public class TeamServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GroupServiceApplication.class,args);
+        SpringApplication.run(TeamServiceApplication.class,args);
     }
 }
