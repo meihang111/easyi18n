@@ -17,5 +17,12 @@
     <select id="getUserById" parameterType="Long" resultMap="BaseResultType">
         select * from User where id=#{id};
     </select>
+    <select id="getUserListByIds" parameterType="Long" resultMap="BaseResultType">
+        select * from User
+        where id in
+        <foreach collection="ids" open="(" close=")" item="id" separator="," >
+            #{id}
+        </foreach>
+    </select>
 </mapper>
 

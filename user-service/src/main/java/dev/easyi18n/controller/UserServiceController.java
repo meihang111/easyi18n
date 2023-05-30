@@ -4,12 +4,11 @@ import dev.easyi18n.entities.CommonResult;
 import dev.easyi18n.entities.User;
 import dev.easyi18n.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author meihang
@@ -40,6 +39,20 @@ public class UserServiceController{
         log.info("******插入结果：" + user);
         if(user != null){
             return new CommonResult(200,"searchSuccess",user);
+        }else {
+            return new CommonResult(200,"searchError",null);
+        }
+    }
+
+    @GetMapping(value = "user/getusersbyids")
+    public CommonResult getUserListByIds(@RequestParam(value = "ids",required = true) List<Long> ids){
+        List<User> userList = null;
+        if(ids != null && ids.size() != 0){
+            userList = userService.getUserListByIds(ids);
+        }
+        if(userList != null){
+            log.info("******查询结果结果：" + userList);
+            return new CommonResult(200,"searchSuccess",userList);
         }else {
             return new CommonResult(200,"searchError",null);
         }

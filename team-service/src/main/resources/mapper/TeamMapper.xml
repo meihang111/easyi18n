@@ -24,4 +24,8 @@
         from Team RIGHT JOIN Team_User
         on Team_User.user_id=#{userId} and Team.team_id=Team_User.team_id;
     </select>
+
+    <select id="getUserIdByTeamId" parameterType="Long" resultType="Long">
+        select user_id from Team_User where team_id=#{teamId};
+    </select>
 </mapper>

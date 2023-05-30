@@ -1,5 +1,6 @@
 package dev.easyi18n.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import dev.easyi18n.entities.CommonResult;
 import dev.easyi18n.entities.Team;
 import dev.easyi18n.service.TeamService;
@@ -36,7 +37,7 @@ public class TeamServiceController {
 
     @GetMapping(value="team/getbyteamid/{teamId}")
     public CommonResult getByTeamId(@PathVariable("teamId") Long teamId){
-        Team team = teamService.getTeamByTeamId(teamId);
+        JSONObject team = teamService.getTeamByTeamId(teamId);
         if(team != null){
             return new CommonResult(200,"teamsearchSuccess",team);
         }else {

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author meihang
@@ -26,4 +27,8 @@ public class UserServiceImpl implements UserService {
     public User getUserById(@Param("id") Long id){
         return userDao.getUserById(id);
     };
+
+    public List<User> getUserListByIds(@Param("ids") List<Long> ids){
+        return userDao.getUserListByIds(ids);
+    }
 }

@@ -1,5 +1,6 @@
 package dev.easyi18n.service;
 
+import com.alibaba.fastjson.JSONObject;
 import dev.easyi18n.entities.Team;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public interface TeamService {
     public int createTeam(Team team);
 
-    public Team getTeamByTeamId(@Param("teamId") Long teamId);
+    public JSONObject getTeamByTeamId(@Param("teamId") Long teamId);
 
     public List<Team> getTeamByUserId(@Param("userId") Long userId);
 }

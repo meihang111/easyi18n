@@ -19,6 +19,8 @@ public interface TeamDao {
 
     public List<Team> getTeamByUserId(@Param("userId") Long userId);
 
+    public List<Long> getUserIdByTeamId(@Param("teamId") Long teamId);
+
 //    public List<Long> getUserByTeamId(@Param("teamId") Long teamId);
 //
 //    public int addMenbers(Long teamId, List<Long> userIds);
